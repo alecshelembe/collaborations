@@ -17,7 +17,7 @@ const LocationUploader = ({ onLocationSuccess }) => {
         // Request location permission
         const { status: locationStatus } = await Location.requestForegroundPermissionsAsync();
         if (locationStatus !== 'granted') {
-          // Alert.alert('Permission Denied', 'Allow location access to use this feature.');
+          Alert.alert('Permission Denied', 'Allow location access to use this feature.');
           return;
         }
 
