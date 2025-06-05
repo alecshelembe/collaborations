@@ -148,7 +148,7 @@ export default function BookingPage() {
 
           <TextInput
             style={[styles.input, { height: 80 }]}
-            placeholder="Note (optional)"
+            placeholder="Notes (optional)"
             placeholderTextColor="#888" // Added for dark background visibility
             value={notes}
             onChangeText={setNotes}

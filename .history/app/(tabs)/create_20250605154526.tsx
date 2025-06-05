@@ -94,7 +94,7 @@ export default function BookingPage() {
         <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
           <NotificationPopup />
 
-          <Text style={styles.title}>Create Booking </Text>
+          <Text style={styles.title}>Create booking request</Text>
 
           <Text style={styles.label}>Please select a date and time you would like visit.</Text>
           <View style={styles.row}>
@@ -106,12 +106,10 @@ export default function BookingPage() {
             </TouchableOpacity>
           </View>
           
-          <Text style={styles.label}>You Selected:</Text>
-          
           <Text style={styles.selected}>
-             {date.toLocaleString('en-US', {
+            Selected: {date.toLocaleString('en-US', {
               weekday: 'long',
-              // year: 'numeric',
+              year: 'numeric',
               month: 'long',
               day: 'numeric',
               hour: 'numeric',
@@ -148,7 +146,7 @@ export default function BookingPage() {
 
           <TextInput
             style={[styles.input, { height: 80 }]}
-            placeholder="Note (optional)"
+            placeholder="Notes (optional)"
             placeholderTextColor="#888" // Added for dark background visibility
             value={notes}
             onChangeText={setNotes}
@@ -157,7 +155,7 @@ export default function BookingPage() {
 
           <TouchableOpacity style={styles.submitButton} onPress={handleBooking}>
             <Text style={styles.submitButtonText}>
-             Send email confirmation
+             Send confirmation request
             </Text>
           </TouchableOpacity>
 

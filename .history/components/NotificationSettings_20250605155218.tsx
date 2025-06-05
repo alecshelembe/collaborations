@@ -17,9 +17,10 @@ import axios from 'axios';
 const API_BASE_URL = 'https://lego-robotics.visitmyjoburg.co.za/api';
 
 const notificationQuestions = [
-  "New Posts",
-  "Live streams",
   "Competition updates",
+  "New Posts",
+  "Live stream",
+  "More Lego events",
 ];
 
 type NotificationSetting = {

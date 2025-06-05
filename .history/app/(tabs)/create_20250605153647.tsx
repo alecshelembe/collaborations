@@ -94,30 +94,17 @@ export default function BookingPage() {
         <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
           <NotificationPopup />
 
-          <Text style={styles.title}>Create Booking </Text>
+          <Text style={styles.title}>Create booking request</Text>
 
           <Text style={styles.label}>Please select a date and time you would like visit.</Text>
           <View style={styles.row}>
             <TouchableOpacity onPress={() => showDatePicker('date')} style={styles.button}>
-              <Text style={styles.buttonText}>Pick Date</Text>
+              <Text style={styles.buttonText}>Pick Dacte</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => showDatePicker('time')} style={styles.button}>
               <Text style={styles.buttonText}>Pick Time</Text>
             </TouchableOpacity>
           </View>
-          
-          <Text style={styles.label}>You Selected:</Text>
-          
-          <Text style={styles.selected}>
-             {date.toLocaleString('en-US', {
-              weekday: 'long',
-              // year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              hour: 'numeric',
-              minute: '2-digit',
-              hour12: true,
-            })}</Text>
           
           <TextInput
             style={styles.input}
@@ -148,7 +135,7 @@ export default function BookingPage() {
 
           <TextInput
             style={[styles.input, { height: 80 }]}
-            placeholder="Note (optional)"
+            placeholder="Notes (optional)"
             placeholderTextColor="#888" // Added for dark background visibility
             value={notes}
             onChangeText={setNotes}
@@ -157,7 +144,15 @@ export default function BookingPage() {
 
           <TouchableOpacity style={styles.submitButton} onPress={handleBooking}>
             <Text style={styles.submitButtonText}>
-             Send email confirmation
+              {date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+              })}
             </Text>
           </TouchableOpacity>
 
@@ -206,9 +201,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 0,
     color: '#333', // Keep text dark for contrast on white card
   },
   input: {
@@ -244,9 +240,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 14,
     color: '#444',
-    fontSize: 16,
-    fontWeight: 'bold',
-
   },
   submitButton: {
     backgroundColor: '#000', // Submit button background (can be themed)

@@ -92,9 +92,9 @@ export default function CreateUserWithImage() {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        <Text style={styles.title}>Push notification settings</Text>
+        <Text style={styles.title}>Notification settings</Text>
                 <NotificationSettings/>
-        <Text style={styles.title}>Join the fun!</Text>
+        <Text style={styles.title}>Join the Fun!</Text>
 
         <TouchableOpacity onPress={pickImage} style={styles.imagePicker}>
           <Text style={styles.imagePickerText}>
@@ -142,7 +142,6 @@ export default function CreateUserWithImage() {
           </View>
         )}
 
-        <Text style={styles.notificationText}>We follow a strict data protection policy. User accounts are removed after a long period of inactivity.</Text>
          <TouchableOpacity style={styles.submitButton} onPress={handleSubmit(onSubmit)}>
           <Text style={styles.submitButtonText}>Save</Text>
         </TouchableOpacity>
@@ -160,8 +159,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    // fontWeight: 'bold',
-    marginBottom: 20,
+    fontWeight: 'bold',
+    marginBottom: 24,
     textAlign: 'center',
     color: '#333',
     marginTop: 50,

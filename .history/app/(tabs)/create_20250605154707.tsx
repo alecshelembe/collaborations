@@ -106,12 +106,12 @@ export default function BookingPage() {
             </TouchableOpacity>
           </View>
           
-          <Text style={styles.label}>You Selected:</Text>
+          <Text style={styles.label}>Your booking is scheduled for:</Text>
           
           <Text style={styles.selected}>
              {date.toLocaleString('en-US', {
               weekday: 'long',
-              // year: 'numeric',
+              year: 'numeric',
               month: 'long',
               day: 'numeric',
               hour: 'numeric',
@@ -148,7 +148,7 @@ export default function BookingPage() {
 
           <TextInput
             style={[styles.input, { height: 80 }]}
-            placeholder="Note (optional)"
+            placeholder="Notes (optional)"
             placeholderTextColor="#888" // Added for dark background visibility
             value={notes}
             onChangeText={setNotes}
@@ -157,7 +157,7 @@ export default function BookingPage() {
 
           <TouchableOpacity style={styles.submitButton} onPress={handleBooking}>
             <Text style={styles.submitButtonText}>
-             Send email confirmation
+             Send confirmation request
             </Text>
           </TouchableOpacity>
 

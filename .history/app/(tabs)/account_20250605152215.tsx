@@ -94,7 +94,7 @@ export default function CreateUserWithImage() {
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         <Text style={styles.title}>Push notification settings</Text>
                 <NotificationSettings/>
-        <Text style={styles.title}>Join the fun!</Text>
+        <Text style={styles.title}>Join the Fun!</Text>
 
         <TouchableOpacity onPress={pickImage} style={styles.imagePicker}>
           <Text style={styles.imagePickerText}>

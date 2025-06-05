@@ -94,7 +94,7 @@ export default function CreateUserWithImage() {
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         <Text style={styles.title}>Push notification settings</Text>
                 <NotificationSettings/>
-        <Text style={styles.title}>Join the fun!</Text>
+        <Text style={styles.title}>Join the Fun!</Text>
 
         <TouchableOpacity onPress={pickImage} style={styles.imagePicker}>
           <Text style={styles.imagePickerText}>
@@ -142,12 +142,15 @@ export default function CreateUserWithImage() {
           </View>
         )}
 
-        <Text style={styles.notificationText}>We follow a strict data protection policy. User accounts are removed after a long period of inactivity.</Text>
          <TouchableOpacity style={styles.submitButton} onPress={handleSubmit(onSubmit)}>
           <Text style={styles.submitButtonText}>Save</Text>
         </TouchableOpacity>
 
       </ScrollView>
+      <View style={{ padding: 16, backgroundColor: '#fff', borderTopWidth: 1, borderColor: '#ddd' }}>
+        <Text style={{ textAlign: 'center', color: '#888' }}>
+          By creating an account, you agree to our Terms of Service and Privacy Policy.
+        </Text>
     </View>
   );
 }
