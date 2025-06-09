@@ -34,15 +34,6 @@ export default function TabLayout() {
         }),
       }}
     >
-    
-    <Tabs.Screen
-        name="rules"
-        options={{
-          title: 'Rules',
-          tabBarIcon: ({ color }) => <LockClosedIcon size={28} color={color} />,
-        }}
-        />
-
       <Tabs.Screen
         name="index"
         options={{
@@ -50,14 +41,23 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <HomeIcon size={28} color={color} />,
         }}
       />
-
-        <Tabs.Screen
+    
+      <Tabs.Screen
         name="posts"  // New screen name for posts
         options={{
           title: 'Posts',
           tabBarIcon: ({ color }) => <DocumentTextIcon size={28} color={color} />, // Icon for posts
         }}
       />
+
+      
+      <Tabs.Screen
+        name="rules"
+        options={{
+          title: 'Rules',
+          tabBarIcon: ({ color }) => <LockClosedIcon size={28} color={color} />,
+        }}
+        />
 
       <Tabs.Screen
         name="create"
