@@ -34,38 +34,38 @@ export default function TabLayout() {
         }),
       }}
     >
-      <Tabs.Screen
-      name="settings"
-      options={{
-        title: 'Settings',
-        tabBarIcon: ({ color }) => <UserPlusIcon size={28} color={color} />,
-      }}
-    />
+    
+    <Tabs.Screen
+        name="rules"
+        options={{
+          title: 'Info',
+          tabBarIcon: ({ color }) => <LockClosedIcon size={28} color={color} />,
+        }}
+        />
 
-     <Tabs.Screen
+      <Tabs.Screen
       name="posts"  // New screen name for posts
       options={{
         title: 'Posts',
         tabBarIcon: ({ color }) => <DocumentTextIcon size={28} color={color} />, // Icon for posts
       }}
       />
-    
-
-    <Tabs.Screen
-      name="index"
-      options={{
-        title: 'Events',
-        tabBarIcon: ({ color }) => <HomeIcon size={28} color={color} />,
-      }}
-    />
 
       <Tabs.Screen
-          name="rules"
-          options={{
-            title: 'Info',
-            tabBarIcon: ({ color }) => <LockClosedIcon size={28} color={color} />,
-          }}
-          />
+        name="index"
+        options={{
+          title: 'Events',
+          tabBarIcon: ({ color }) => <HomeIcon size={28} color={color} />,
+        }}
+      />
+
+    <Tabs.Screen
+      name="account"
+      options={{
+        title: 'Account',
+        tabBarIcon: ({ color }) => <UserPlusIcon size={28} color={color} />,
+      }}
+    />
 
       <Tabs.Screen
         name="users"
