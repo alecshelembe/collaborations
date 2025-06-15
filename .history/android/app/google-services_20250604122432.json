@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425503117524",
+    "project_id": "visitmyjoburg-4db92",
+    "storage_bucket": "visitmyjoburg-4db92.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425503117524:android:8c158cf270ead2a5082b41",
+        "android_client_info": {
+          "package_name": "com.aceshelembe.ApiExtenstion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhsEw99y_YzbA-8FnKv15-SOQ7s4qt0-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425503117524:android:832310e34f564300082b41",
+        "android_client_info": {
+          "package_name": "coza.visitmyjoburg.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhsEw99y_YzbA-8FnKv15-SOQ7s4qt0-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

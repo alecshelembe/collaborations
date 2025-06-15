@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Cash Crusaders",
-    "slug": "cash-crusaders",
+    "slug": "ApiExtenstion",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/jozi-icon.png",
@@ -48,9 +48,8 @@
         "origin": false
       },
       "eas": {
-        "projectId": "3ea09ba4-fdd9-42eb-b8f9-25b90527afbd"
+        "projectId": "743af4e6-9250-4f8a-a5ac-5cc1ff7c599d"
       }
-    },
-    "owner": "aceshelembe"
+    }
   }
 }
