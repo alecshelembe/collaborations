@@ -58,7 +58,13 @@ export default function TabLayout() {
         tabBarIcon: ({ color }) => <HomeIcon size={28} color={color} />,
       }}
     />
-    
+    <Tabs.Screen
+      name="Call"
+      options={{
+        title: 'Create',
+        tabBarIcon: ({ color }) => <PencileIcon size={28} color={color} />,
+      }}
+    />
 
       <Tabs.Screen
           name="rules"
