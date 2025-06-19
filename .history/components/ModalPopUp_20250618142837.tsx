@@ -17,7 +17,7 @@ const ModalPopUp = ({ locationData, onClose }) => {
   const [isImageViewVisible, setIsImageViewVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const baseURL = 'https://cash-crusaders.visitmyjoburg.co.za/';
+  const baseURL = 'https://cash-crusaders.visitmyjoburg.co.za';
 
   const openImageViewer = (index) => {
     setCurrentImageIndex(index);

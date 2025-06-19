@@ -5,6 +5,7 @@ import ThemedButton from "@/components/ThemedButton";
 import { ThemedView } from '@/components/ThemedView';
 import ImageViewing from 'react-native-image-viewing';
 import { TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons'; // Or whichever icon library you're using
 
 
 import {
@@ -86,14 +87,27 @@ const SocialPostCard: React.FC = () => {
     return match && match[2].length === 11 ? match[2] : null;
   };
 
+  // --- Start of the new/modified section ---
+  const handleLinkPress = async (url: string | undefined) => {
+    if (url) {
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      } else {
+        console.log(`Don't know how to open this URL: ${url}`);
+        // Optionally, show an alert to the user
+        // Alert.alert("Error", "Could not open the link.");
+      }
+    }
+  };
+  // --- End of the new/modified section ---
+
   const renderPostCard = ({ item }: { item: SocialPost }) => {
     const videoId = getYouTubeVideoId(item.video_link);
     return (
 
       <View style={styles.card}>
         <View style={styles.header}>
-          // Place this line within your renderPostCard function, for example, after the detailsCard:
-{item.buy_now_link && <TouchableOpacity onPress={() => Linking.openURL(item.buy_now_link)} style={styles.buyNowButton}><FontAwesome name="shopping-cart" size={20} color="white" style={styles.buyNowIcon} /><Text style={styles.buyNowText}>Buy Now</Text></TouchableOpacity>}
           {item.profile_image_url ? (
             <Image
               source={{ uri: `${STORAGE_BASE_URL}/${item.profile_image_url}` }}
@@ -115,13 +129,24 @@ const SocialPostCard: React.FC = () => {
           </View>
         </View>
         <View style={styles.detailsCard}>
-          
           <Text style={styles.description}>{item.address}</Text>
           <Text style={styles.title}>{item.place_name}</Text>
           {/*<Text style={styles.fee}>R {item.fee}</Text>*/}
           <Text style={styles.description}>{item.description}</Text>
           <Text style={styles.description}>{item.note}</Text>
         </View>
+
+         {/* --- Start of the "Buy Now" Link Section --- */}
+        {item.buy_now_link && (
+          <TouchableOpacity
+            onPress={() => handleLinkPress(item.buy_now_link)}
+            style={styles.buyNowButton}
+          >
+            <FontAwesome name="shopping-cart" size={20} color="white" style={styles.buyNowIcon} />
+            <Text style={styles.buyNowText}>Buy Now</Text>
+          </TouchableOpacity>
+        )}
+        {/* --- End of the "Buy Now" Link Section --- */}
 
         {item.images && item.images.length > 0 ? (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.imageContainer}>

@@ -92,8 +92,6 @@ const SocialPostCard: React.FC = () => {
 
       <View style={styles.card}>
         <View style={styles.header}>
-          // Place this line within your renderPostCard function, for example, after the detailsCard:
-{item.buy_now_link && <TouchableOpacity onPress={() => Linking.openURL(item.buy_now_link)} style={styles.buyNowButton}><FontAwesome name="shopping-cart" size={20} color="white" style={styles.buyNowIcon} /><Text style={styles.buyNowText}>Buy Now</Text></TouchableOpacity>}
           {item.profile_image_url ? (
             <Image
               source={{ uri: `${STORAGE_BASE_URL}/${item.profile_image_url}` }}
@@ -115,7 +113,6 @@ const SocialPostCard: React.FC = () => {
           </View>
         </View>
         <View style={styles.detailsCard}>
-          
           <Text style={styles.description}>{item.address}</Text>
           <Text style={styles.title}>{item.place_name}</Text>
           {/*<Text style={styles.fee}>R {item.fee}</Text>*/}

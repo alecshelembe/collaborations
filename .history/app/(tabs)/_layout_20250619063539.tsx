@@ -12,9 +12,6 @@ import {
   LockClosedIcon,
   UserPlusIcon,
   UsersIcon,
-  ArchiveBoxIcon,    // Primary for 'In Store'
-  ShoppingCartIcon,  // Primary for 'Buy Now'
-  NewspaperIcon,     // Primary for 'News'
   PencilIcon,
   DocumentTextIcon,  // Importing an icon for posts
 } from 'react-native-heroicons/solid'; // Or use /outline for outline versions
@@ -45,35 +42,30 @@ export default function TabLayout() {
       }}
     />
 
-    <Tabs.Screen
-      name="posts"
+     <Tabs.Screen
+      name="posts"  // New screen name for posts
       options={{
         title: 'In Store',
-        tabBarIcon: ({ color }) => <ArchiveBoxIcon size={28} color={color} />,
-        // If using @expo/vector-icons:
-        // tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shopping-outline" size={28} color={color} />,
+        tabBarIcon: ({ color }) => <DocumentTextIcon size={28} color={color} />, // Icon for posts
       }}
-    />
+      />
+    
 
     <Tabs.Screen
       name="index"
       options={{
         title: 'Buy Now',
-        tabBarIcon: ({ color }) => <ShoppingCartIcon size={28} color={color} />,
-        // If using @expo/vector-icons:
-        // tabBarIcon: ({ color }) => <FontAwesome name="shopping-cart" size={28} color={color} />,
+        tabBarIcon: ({ color }) => <HomeIcon size={28} color={color} />,
       }}
     />
 
-    <Tabs.Screen
-      name="rules" // Consider renaming this screen file to 'news.tsx' for clarity
-      options={{
-        title: 'News',
-        tabBarIcon: ({ color }) => <NewspaperIcon size={28} color={color} />,
-        // If using @expo/vector-icons:
-        // tabBarIcon: ({ color }) => <FontAwesome name="newspaper-o" size={28} color={color} />,
-      }}
-    />
+      <Tabs.Screen
+          name="rules"
+          options={{
+            title: 'News',
+            tabBarIcon: ({ color }) => <LockClosedIcon size={28} color={color} />,
+          }}
+          />
 
       <Tabs.Screen
         name="users"
