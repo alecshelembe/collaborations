@@ -8,7 +8,14 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    // REMOVED the redundant top-level "splash" object here.
+     "splash": {
+      "image": "./assets/images/jozi-icon.png", // Your splash image (optional)
+      "resizeMode": "contain",
+      "backgroundColor": "#000000", // Black background
+      "dark": { // Optional: for dark mode
+        "backgroundColor": "#000000"
+      }
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.aceshelembe.ApiExtenstion",
@@ -34,13 +41,10 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png", // Use your desired splash image here
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#000000", // Set to black here
-          "dark": { // Optional: for dark mode, set to black here too
-            "backgroundColor": "#000000"
-          }
+          "backgroundColor": "#f5f5f5"
         }
       ]
     ],
@@ -50,11 +54,11 @@
     "extra": {
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "3ea09ba4-fdd9-42eb-b8f9-25b90527afbd"
       }
     },
-     "eas": {
-        "projectId": "3ea09ba4-fdd9-42eb-b8f9-25b90527afbd"
-      },
     "owner": "aceshelembe"
   }
 }
