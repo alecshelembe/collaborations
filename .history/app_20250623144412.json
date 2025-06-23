@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "tladi_4de_nanaz",
+    "name": "AyeSye",
     "slug": "cash-crusaders",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#000000",
+        "backgroundColor": "#ffffff",
         "googleServicesFile": "./android/app/google-services.json"
       },
       "package": "com.aceshelembe.ApiExtenstion"
