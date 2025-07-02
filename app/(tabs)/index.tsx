@@ -117,9 +117,9 @@ const SocialPostCard: React.FC = () => {
           
           <Text style={styles.description}>{item.address}</Text>
           <Text style={styles.title}>{item.place_name}</Text>
-          {/*<Text style={styles.fee}>R {item.fee}</Text>*/}
           <Text style={styles.description}>{item.description}</Text>
           <Text style={styles.description}>{item.note}</Text>
+          <Text style={styles.fee}>R {item.fee}</Text>
         </View>
 
         {item.images && item.images.length > 0 ? (

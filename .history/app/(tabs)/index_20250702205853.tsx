@@ -3,7 +3,6 @@ import { firebaseApp } from "@/firebase"; // Adjust path to match your project
 import { WebView } from "react-native-webview";
 import ThemedButton from "@/components/ThemedButton";
 import { ThemedView } from '@/components/ThemedView';
-import SearchComponent from "@/components/SearchFeature";
 import ImageViewing from 'react-native-image-viewing';
 import { TouchableOpacity } from 'react-native';
 
@@ -19,8 +18,10 @@ import {
   ActivityIndicator,
 } from "react-native";
 
-// Packages to install:
-// npm install react-native-webview
+// Define your base URLs here for easy management
+const API_BASE_URL = 'https://visitmyjoburg.co.za/api';
+const STORAGE_BASE_URL = 'https://visitmyjoburg.co.za/storage';
+const IMAGE_BASE_URL = 'https://visitmyjoburg.co.za'; // For images that aren't in /storage
 
 interface SocialPost {
   id: number;
@@ -54,13 +55,13 @@ const SocialPostCard: React.FC = () => {
       setError(null);
 
       try {
-        const response = await fetch(`https://visitmyjoburg.co.za/api/get-social-posts`);
+        const response = await fetch(`${API_BASE_URL}/get-social-posts`);
         if (!response.ok) {
           throw new Error(`Error ${response.status}: Failed to fetch posts`);
         }
         const data = await response.json();
         if (data && data.data && Array.isArray(data.data)) {
-          const parsedData = data.data.map((post) => ({
+          const parsedData = data.data.map((post: any) => ({
             ...post,
             images: JSON.parse(post.images),
             extras: post.extras || null, // Keep extras as is
@@ -91,9 +92,10 @@ const SocialPostCard: React.FC = () => {
 
       <View style={styles.card}>
         <View style={styles.header}>
+          
           {item.profile_image_url ? (
             <Image
-              source={{ uri: `https://lego-robotics.visitmyjoburg.co.za/storage/${item.profile_image_url}` }}
+              source={{ uri: `${STORAGE_BASE_URL}/${item.profile_image_url}` }}
               style={styles.profileImage}
             />
           ) : (
@@ -112,22 +114,23 @@ const SocialPostCard: React.FC = () => {
           </View>
         </View>
         <View style={styles.detailsCard}>
-            <Text style={styles.description}>{item.address}</Text>
-           <Text style={styles.title}>{item.place_name}</Text>
-          {/*<Text style={styles.fee}>R {item.fee}</Text>*/}
+          
+          <Text style={styles.description}>{item.address}</Text>
+          <Text style={styles.title}>{item.place_name}</Text>
           <Text style={styles.description}>{item.description}</Text>
           <Text style={styles.description}>{item.note}</Text>
+          <Text style={styles.fee}>R {item.fee}</Text>
         </View>
 
         {item.images && item.images.length > 0 ? (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.imageContainer}>
             {item.images.map((img, index) => {
-              const imageUri = `https://lego-robotics.visitmyjoburg.co.za/${img}`;
+              const imageUri = `${IMAGE_BASE_URL}/${img}`;
               return (
                 <TouchableOpacity
                   key={index}
                   onPress={() => {
-                    setViewerImages(item.images.map(i => ({ uri: `https://lego-robotics.visitmyjoburg.co.za/${i}` })));
+                    setViewerImages(item.images.map(i => ({ uri: `${IMAGE_BASE_URL}/${i}` })));
                     setCurrentImageIndex(index);
                     setIsViewerVisible(true);
                   }}
@@ -224,18 +227,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  listContainer: { padding: 16, marginTop: 25 },
+  listContainer: { padding: 5, marginTop: 25 },
   card: {
     backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 3 },
     elevation: 3,
 
     borderRadius: 16,
     padding: 16,
     marginBottom: 24,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
   },
@@ -266,10 +267,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
 
     borderRadius: 16,
-    padding: 16,
-    marginBottom: 16,
     shadowColor: '#000',
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.08,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
     elevation: 3,
